@@ -1,0 +1,11 @@
+{
+    "name": "alan/consulta-debitos-e-saldos",
+    "autoload": {
+        "psr-4": {
+            "Alan\\ConsultaDebitosESaldos\\": "src/"
+        }
+    },
+    "require": {
+        "vlucas/phpdotenv": "^5.6"
+    }
+}
