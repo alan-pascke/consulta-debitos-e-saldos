@@ -15,7 +15,7 @@ class Database {
 
             try {
                 $this->pdo = new PDO(
-                    "pgsql:host=".$_ENV['DB_HOST'].";dbname=".$_ENV['DB_NAME'], 
+                    "pgsql:host=".$_ENV['DB_HOST'].";dbname=".$_ENV['DB_NAME'].";port=".$_ENV['DB_PORT'], 
                     $_ENV['DB_USER'], 
                     $_ENV['DB_PASS']);
                 $this->pdo->setAttribute(PDO::ATTR_ERRMODE, PDO::ERRMODE_EXCEPTION);

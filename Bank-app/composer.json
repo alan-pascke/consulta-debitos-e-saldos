@@ -1,0 +1,17 @@
+{
+    "name": "alan/bank-app",
+    "autoload": {
+        "psr-4": {
+            "Alan\\BankApp\\": "src/"
+        }
+    },
+    "authors": [
+        {
+            "name": "alan-pascke",
+            "email": "alan.pascke@gmail.com"
+        }
+    ],
+    "require": {
+        "vlucas/phpdotenv": "^5.6"
+    }
+}

@@ -16,13 +16,13 @@
 
         public function getAll(){
             try{
-                $sql = $this->db->query("SELECT * FROM banks");
+                $sql = "SELECT * FROM banks";
                 $stmt = $this->db->prepare($sql);
                 $stmt->execute();
                 return $stmt->fetchAll();
                 
             }catch(PDOException $e){
-                echo "Erro na busca de bancos: " . $e->getMessage();
+                return [];
             }
         }
 
