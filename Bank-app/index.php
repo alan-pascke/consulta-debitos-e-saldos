@@ -1,26 +1,32 @@
 <?php 
-require_once __DIR__.'/src/Controllers/BankController.php';
+require_once __DIR__.'/src/Controllers/ClientsController.php';
 require_once __DIR__.'/vendor/autoload.php';
 
-use Controllers\BankController;
+    use Controllers\ClientsController;
+    $clientsController = new ClientsController();
+    $route = $_GET['route'] ?? 'login';
+    
 
-$controller = new BankController();
 
-$bank = $controller->getBank('001');
+    switch ($route) {
+        case 'login':
+            $clientsController->login();
+            break;
+        default:
+            header("Location: ./src/Views/escolhaOBanco.php");
+            break;
+    }
 
 ?>
 
 <!DOCTYPE html>
-<html lang="pt-br">
+<html lang="en">
 <head>
     <meta charset="UTF-8">
     <meta name="viewport" content="width=device-width, initial-scale=1.0">
-    <title><?php echo $bank['name'];?></title>
+    <title>Document</title>
 </head>
 <body>
-    <h1>Info</h1>
-    <p>
-        <?php echo $bank['code'];?>
-    </p>
+
 </body>
 </html>

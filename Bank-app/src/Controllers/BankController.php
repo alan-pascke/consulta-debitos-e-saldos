@@ -24,7 +24,7 @@
         }
 
         public function getAllBanks(){
-            if ($_SERVER['REQUEST_METHOD'] == 'GET') {
+            if ($_SERVER['REQUEST_METHOD'] === 'GET') {
                 return $this->bankModel->getAll();
             } else {
                 return 'Erro ao buscar bancos';

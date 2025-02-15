@@ -23,6 +23,18 @@
                 return [$e->getMessage()];
             }
         }
+
+        public function getAll(){
+            try{
+                $sql = "SELECT * FROM banks";
+                $stmt = $this->db->prepare($sql);
+                $stmt->execute();
+                return $stmt->fetchAll();
+                
+            }catch(PDOException $e){
+                return [$e->getMessage()];
+            }
+        }
     }
 
 ?>
