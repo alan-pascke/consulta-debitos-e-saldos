@@ -5,8 +5,7 @@
     use Controllers\AccountsController;
 
     session_start();
-    $id = $_SESSION['id'];
-
+    $id = $_SESSION['client_id'];
     $accountController = new AccountsController();
     $account = $accountController->getAccountInformation($id);
 
@@ -24,8 +23,8 @@
 </head>
 <body>
     <header>
-        <h1>Banco LightBlue</h1>
-        <a href="/logout" class="logout-btn">Sair</a>
+        <h1><?php echo $account['name'];?></h1>
+        <a href="/../../../index.php?route=logout&code=<?php echo $account['code'];?>" class="logout-btn">Sair</a>
     </header>
 
     <main>
@@ -41,9 +40,9 @@
 
             <div class="info-card">
                 <h3>Cartão de Crédito</h3>
-                <p><strong>Limite Total:</strong> R$<?php echo $credits['total_limit'];?></p>
-                <p><strong>Utilizado:</strong> R$ <?php echo $credits['used_limit'];?></p>
-                <p><strong>Disponível:</strong> R$<?php echo $credits['total_limit'] - $credits['used_limit'];?></p>
+                <p><strong>Limite Total:</strong> R$<?php echo $credits['total_limit'] ?? '0';?></p>
+                <p><strong>Utilizado:</strong> R$ <?php echo $credits['used_limit'] ?? '0';?></p>
+                <p><strong>Disponível:</strong> R$<?php echo $credits['total_limit'] - $credits['used_limit'] ?? '0';?></p>
             </div>
         </div>
     </main>

@@ -35,13 +35,12 @@
             }
         }
 
-        public function checkIfClientExists($cpf, $password){
+        public function checkIfClientExists($cpf, $password, $bank_id){
             try{
-                $sql = "SELECT * FROM clients WHERE cpf = :cpf AND password = :password";
+                $sql = "SELECT clients.id as client_id , * FROM clients  JOIN accounts ON clients.id = accounts.bank_id WHERE accounts.bank_id=:bank_id AND cpf=:cpf AND password =:password";
                 $stmt = $this->db->prepare($sql);
-                $stmt->execute(['cpf' => $cpf, 'password' => $password]);
-                $client = $stmt->fetch();
-                return $client;
+                $stmt->execute(['cpf' => $cpf, 'password' => $password, 'bank_id' => $bank_id]);
+                return $stmt->fetch();
             
             }catch(PDOException $e){
                 return [$e->getMessage()];

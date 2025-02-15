@@ -5,7 +5,7 @@
     use Config\Database;
     use PDOException;
 
-    class Bank {
+    class Banks {
         private $db;
 
         public function __construct(Database $database) {
