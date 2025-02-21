@@ -1,0 +1,38 @@
+<?xml version="1.0"?>
+<definitions xmlns="http://schemas.xmlsoap.org/wsdl/" xmlns:tns="http://localhost:8080/service/SoapService.php" xmlns:soap="http://schemas.xmlsoap.org/wsdl/soap/" xmlns:xsd="http://www.w3.org/2001/XMLSchema" xmlns:soap-enc="http://schemas.xmlsoap.org/soap/encoding/" xmlns:wsdl="http://schemas.xmlsoap.org/wsdl/" name="BankService" targetNamespace="http://localhost:8080/service/SoapService.php">
+  <types>
+    <xsd:schema targetNamespace="http://localhost:8080/service/SoapService.php">
+      <xsd:import namespace="http://schemas.xmlsoap.org/soap/encoding/"/>
+    </xsd:schema>
+  </types>
+  <portType name="BankServicePort">
+    <operation name="getAccountInformation">
+      <documentation>Obt&#xE9;m as informa&#xE7;&#xF5;es da conta de um cliente com base no CPF.</documentation>
+      <input message="tns:getAccountInformationIn"/>
+      <output message="tns:getAccountInformationOut"/>
+    </operation>
+  </portType>
+  <binding name="BankServiceBinding" type="tns:BankServicePort">
+    <soap:binding style="rpc" transport="http://schemas.xmlsoap.org/soap/http"/>
+    <operation name="getAccountInformation">
+      <soap:operation soapAction="http://localhost:8080/service/SoapService.php#getAccountInformation"/>
+      <input>
+        <soap:body use="encoded" encodingStyle="http://schemas.xmlsoap.org/soap/encoding/" namespace="http://localhost:8080/service/SoapService.php"/>
+      </input>
+      <output>
+        <soap:body use="encoded" encodingStyle="http://schemas.xmlsoap.org/soap/encoding/" namespace="http://localhost:8080/service/SoapService.php"/>
+      </output>
+    </operation>
+  </binding>
+  <message name="getAccountInformationIn">
+    <part name="cpf" type="xsd:string"/>
+  </message>
+  <message name="getAccountInformationOut">
+    <part name="return" type="soap-enc:Array"/>
+  </message>
+  <service name="BankServiceService">
+    <port name="BankServicePort" binding="tns:BankServiceBinding">
+      <soap:address location="http://localhost:8080/service/SoapService.php"/>
+    </port>
+  </service>
+</definitions>

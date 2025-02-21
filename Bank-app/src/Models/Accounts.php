@@ -6,8 +6,6 @@
     use Config\Database;
     use PDOException;
 
-
-
     class Accounts{
         private $db;
 

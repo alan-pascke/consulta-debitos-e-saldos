@@ -19,7 +19,7 @@ $banks = $controller->getAllBanks();
     <title>Escolha o banco</title>
 </head>
 <body class="body-centralize">
-    <form action="/src/Views/banco/login.php/" class="options" method="get">
+    <form action="./banco/login.php/" class="options" method="get">
         <h1 style="margin: 10px 0; text-align: center;">Escolha o banco</h1>
         <div>
             <select name="code" class="banks">

@@ -24,7 +24,7 @@
 <body>
     <header>
         <h1><?php echo $account['name'];?></h1>
-        <a href="/../../../index.php?route=logout&code=<?php echo $account['code'];?>" class="logout-btn">Sair</a>
+        <a href="/index.php?route=logout&code=<?php echo $account['code'];?>" class="logout-btn">Sair</a>
     </header>
 
     <main>

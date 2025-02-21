@@ -13,6 +13,10 @@ class ComposerStaticInitd311f5ec1114b980a1f9662a86ed77b7
     );
 
     public static $prefixLengthsPsr4 = array (
+        'W' => 
+        array (
+            'Wingu\\OctopusCore\\Reflection\\' => 29,
+        ),
         'S' => 
         array (
             'Symfony\\Polyfill\\Php80\\' => 23,
@@ -22,6 +26,7 @@ class ComposerStaticInitd311f5ec1114b980a1f9662a86ed77b7
         'P' => 
         array (
             'PhpOption\\' => 10,
+            'PHP2WSDL\\' => 9,
         ),
         'G' => 
         array (
@@ -38,6 +43,10 @@ class ComposerStaticInitd311f5ec1114b980a1f9662a86ed77b7
     );
 
     public static $prefixDirsPsr4 = array (
+        'Wingu\\OctopusCore\\Reflection\\' => 
+        array (
+            0 => __DIR__ . '/..' . '/wingu/reflection/src',
+        ),
         'Symfony\\Polyfill\\Php80\\' => 
         array (
             0 => __DIR__ . '/..' . '/symfony/polyfill-php80',
@@ -53,6 +62,10 @@ class ComposerStaticInitd311f5ec1114b980a1f9662a86ed77b7
         'PhpOption\\' => 
         array (
             0 => __DIR__ . '/..' . '/phpoption/phpoption/src/PhpOption',
+        ),
+        'PHP2WSDL\\' => 
+        array (
+            0 => __DIR__ . '/..' . '/php2wsdl/php2wsdl/src',
         ),
         'GrahamCampbell\\ResultType\\' => 
         array (

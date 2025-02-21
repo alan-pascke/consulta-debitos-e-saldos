@@ -31,23 +31,4 @@
             }
         }
 
-        // public function addBank(){
-        //     if ($_SERVER['REQUEST_METHOD'] == 'POST') {
-        //         $name = $_POST['name'];
-        //         $balace = $_POST['balace'];
-        //         $credit = $_POST['credit'];
-        //         $debt = $_POST['debt'];
-        //         if (!empty($name) && !empty($balace) && !empty($credit) && !empty($debt)) {
-        //             $result = $this->bankModel->addBank($name, $balace, $credit, $debt);
-                
-        //             if ($result) {
-        //                 // redirecionar para a pagina principal
-        //             } else {
-        //                 echo 'Erro ao adicionar banco';
-        //             }
-        //         } else {
-        //             echo 'Preencha todos os campos';
-        //         }
-        //     }
-        // }
     }

@@ -4,25 +4,20 @@
 
     use Config\Database;
     use PDOException;
+    use SoapClient;
 
-
-
-    class Bank{
+    class Banks{
         private $db;
 
         public function __construct(Database $database){
             $this->db =  $database->getConnection();
         }
 
-        public function getAll(){
-            try{
-                $sql = "SELECT * FROM banks";
-                $stmt = $this->db->prepare($sql);
-                $stmt->execute();
-                return $stmt->fetchAll();
-                
-            }catch(PDOException $e){
-                return [];
+        public function getAllBanksByCPF(){
+            if($_SERVER['REQUEST_METHOD'] === 'GET'){
+                $cpf = $_GET['cpf'];
+                $client = new SoapClient(null, ["uri" => "http://localhost/Bank-app/service/SoapService.php"]);
+                return $client->getAccountInformation($cpf);
             }
         }
 

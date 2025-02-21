@@ -50,12 +50,12 @@
                     $_SESSION['client_id'] = $client['client_id'];
                     header('Location: /src/Views/banco/home.php');
                     exit();
-                } elseif (!password_verify($password, $client['password'])) {
-                    $_SESSION['error'] = "Senha incorreta.";
-                    header('Location: /src/Views/banco/login.php/?code='.$_GET['code']);
-                    exit();
                 } elseif ($client == false ) {
                     $_SESSION['error'] = "Usuário não encontrado.";
+                    header('Location: /src/Views/banco/login.php/?code='.$_GET['code']);
+                    exit();
+                } elseif (!password_verify($password, $client['password'])) {
+                    $_SESSION['error'] = "Senha incorreta.";
                     header('Location: /src/Views/banco/login.php/?code='.$_GET['code']);
                     exit();
                 }

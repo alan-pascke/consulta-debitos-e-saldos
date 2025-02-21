@@ -1,25 +1,30 @@
 <?php 
-
     namespace Controllers;
     require_once __DIR__.'/../../config/Database.php';
-    require_once __DIR__.'/../Models/Bank.php';
-
+    require_once __DIR__.'/../Models/Banks.php';
+    
     use Config\Database;
-    use Models\Bank;
+    use Models\Banks;
+    use SoapClient;
+    
+    error_reporting(E_ALL);
+    ini_set("display_errors", 1);
 
     class BankController{
         private $bankModel;
 
         public function __construct(){
             $db = new Database();
-            $this->bankModel = new Bank($db);
+            $this->bankModel = new Banks($db);
         }
 
-        public function getAllBanks(){
-            if ($_SERVER['REQUEST_METHOD'] === 'GET') {
-                return $this->bankModel->getAll();
+        public function getAllBanks(string $cpf){
+            if($cpf){
+                // $cpf = $_GET['cpf'];
+                $client = new SoapClient('http://localhost:8080/service/SoapService.php?wsdl');
+                return $client->getAccountInformation($cpf);
             } else {
-                return 'Erro ao buscar bancos';
+                return [ 'error' => 'Erro ao buscar bancos'];
             }
         }
 

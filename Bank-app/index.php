@@ -16,10 +16,10 @@ require_once __DIR__.'/vendor/autoload.php';
             $clientsController->logout();
             break;
         case '/':
-            header("Location: /src/Views/escolhaOBanco.php");
+            header("Location: ./src/Views/escolhaOBanco.php");
             break;
         default:
-            header("Location: /src/Views/escolhaOBanco.php");
+            header("Location: ./src/Views/escolhaOBanco.php");
             break;
     }
 

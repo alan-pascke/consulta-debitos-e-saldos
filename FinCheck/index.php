@@ -5,6 +5,6 @@
 
     $route = $_GET['route'] ?? '';
     
-    header("Location: ./src/Views/bank/list.php");  
+    header("Location: ./src/Views/home/list.php");  
 
 ?>

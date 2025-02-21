@@ -34,7 +34,7 @@
             <?php if ($error): ?>
                 <span style="color: red;"><?php echo $error; ?></span>
             <?php endif; ?>
-            <form class="login-form" action="/../../../index.php?route=login&code=<?php echo $_GET['code']; ?>" method="POST">
+            <form class="login-form" action="/index.php?route=login&code=<?php echo $_GET['code']; ?>" method="POST">
                 <input type="text" name="cpf" placeholder="cpf" required/>
                 <input type="password" name="password" placeholder="password" required/>
                 <button type="submit">login</button>
